@@ -1,0 +1,36 @@
+model: ../models/model1.yaml # NSCM model encoding assumptions
+X: ['E.X', 'ERE.X'] # treatments
+Y: ['E.Y'] # outcome
+
+network: # config for network generation
+    skeleton_type: ['watts_strogatz', 'barabasi_albert'] # types of synthetic graph skeleton
+    N: [3000] # number of nodes
+    m: [1,5,10] # preferential attachment parameter for barabasi albert
+    p: [0.002, 0.01, 0.1] # edge probabilities for erdos renyi
+    seeds: 15 # Number of networks to generate for each setting: 1x3xseeds
+    seed_start: 0
+
+functions: # config for causal effect functions for given model
+    betas: [0.6, 0.6] # C
+    alphas: [5, 5, 5, 5, 5] # Z
+    gamma: 2 # for rbf(E.Z, ERE.Z), similarity function
+    taus: #coefficients for direct effect, effect modifiers, homogenous exposure, and heterogeneous exposure
+        direct: [-1]
+        treatment_influence: [0.5] # confounding between E.X and ERE.X by ERE.C and E.C and ER.Zr
+        attr_em: [-0.5, 1, 0.5]
+        net_em: [-1, 1]
+        confounder: [-5]
+        het_exposure_sim: [0]
+        het_exposure: [1]
+        het_exposure_mut_frns: [0]
+        
+experiment:
+    exposure: [[0], [10], [20], [30]]
+    
+    
+
+
+    
+
+    
+    

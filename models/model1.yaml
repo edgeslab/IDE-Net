@@ -1,0 +1,18 @@
+Attributes:
+    Entity: [C, X, Y, Z]
+    Relationship: [Er, Zr]
+    Latent: []
+    Selection: []
+    Contagion: []
+Dependencies:
+    - E.C->E.X # C is founder between X
+    - E.C->E.Y # and Y
+    - E.X->E.Y # X causes Y
+    - E.Z->E.Y # Z is an effect modifier
+    - ERE.C->E.X # X also influenced by peers' C
+    - ER.Er->E.X # according to friendship
+    - ERE.X->E.Y # Peer's X spillover to outcome Y
+    - ERE.Z->E.Y # Z*Er*Zr controls heterogeneity of interference
+    - ER.Er->E.Y 
+    - ER.Zr->E.Y
+    - ERER.Er->E.Y # Degree of others also interact with influence or effect modification

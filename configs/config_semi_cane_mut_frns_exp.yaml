@@ -1,0 +1,22 @@
+seeds: 15 # Number of networks to generate for each setting: 1x3xseeds
+seed_start: 0
+
+gamma: 2 # for rbf(E.Z, ERE.Z), similarity function
+#coefficients for direct effect, effect modifiers, homogenous exposure, and heterogeneous exposure
+treatment_influence: [0.4] # confounding between E.X and ERE.X by ERE.C and E.C and ER.Zr
+attr_em: [-0.5, 1, 0.5]
+net_em: [-1,1]
+het_exposure_sim: [0]
+het_exposure: [0]
+het_exposure_mut_frns: [1]
+        
+experiment:
+    exposure: [[0], [10], [20], [30]]
+    
+    
+
+
+    
+
+    
+    
